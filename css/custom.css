@@ -53,7 +53,7 @@
     --primary-color: #FFFFFF;
     --secondary-color: #1B1B1B;
     --text-color: #F5F5F4;
-    --accent-color: #BFF747;
+    --accent-color: #a1a4f5;
     --dark-color: #000000;
     --divider-color: #FFFFFF1A;
     --dark-divider-color: #F7FBFA1A;
@@ -1326,7 +1326,7 @@ body:has(.offcanvas) {
     padding: 80px;
     position: relative;
     border-radius: 30px;
-    background: linear-gradient(180deg, #BFF747 0%, rgba(0, 0, 0, 0) 90.04%);
+    background: linear-gradient(180deg, #a1a4f5 0%, rgba(0, 0, 0, 0) 90.04%);
 }
 
 .digital-success-box::before {
