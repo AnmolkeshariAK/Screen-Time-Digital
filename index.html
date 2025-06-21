@@ -47,17 +47,56 @@
         #loading-icon {
             max-width: 200px !important;
         }
+
+
+        #chatbox {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        #messages {
+            height: 200px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .msg {
+            margin: 5px 0;
+        }
+
+        .bot {
+            color: green;
+        }
+
+        .user {
+            color: blue;
+            text-align: right;
+        }
     </style>
 
     <!-- Preloader Start -->
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img  src="images/ScreenTimeDigitalLogo.png" alt=""></div>
+            <div id="loading-icon"><img src="images/ScreenTimeDigitalLogo.png" alt=""></div>
 
         </div>
     </div>
     <!-- Preloader End -->
+    <!-- Chatbot -->
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="input" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <!-- Chatbot End -->
     <!-- Header Start -->
     <header class="main-header">
         <div class="header-sticky">
@@ -215,7 +254,7 @@
 
 
                         </div>
-                        <!-- Hero Content Body End -->  
+                        <!-- Hero Content Body End -->
                         <!-- Hero Button Start -->
                         <div class="hero-btn wow fadeInUp" data-wow-delay="0.25s">
                             <a href="Contact.html" class="btn-default">get in touch</a>
@@ -1429,7 +1468,38 @@
         </div>
         <!-- Footer Main End -->
     </footer>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('input');
+            const msg = input.value;
+            if (msg.trim() === '') return;
 
+            const messages = document.getElementById('messages');
+            messages.innerHTML += `<div class='msg user'>${msg}</div>`;
+
+            // Simple response logic
+            let response = "I didn't understand that.";
+            if (msg.toLowerCase().includes("hello")) response = "Hi! How can I help you?";
+            if (msg.toLowerCase().includes("price")) response = "Our services start at ₹89/month.";
+
+            messages.innerHTML += `<div class='msg bot'>${response}</div>`;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+        }
+    </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6856580a19acdf191aa6484a/1iu8kfqve';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
     <!-- Jquery Library File -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
@@ -1464,7 +1534,7 @@
     <!-- Wow js file -->
     <script src="js/wow.js"></script>
     <!-- Main Custom js file -->
-    <script src="js/function.js"></script> 
+    <script src="js/function.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
